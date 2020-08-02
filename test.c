@@ -10,6 +10,9 @@ SDL_Surface* screen_surface = NULL;
 
 SDL_Renderer* renderer = NULL;
 
+SDL_Texture* texture = NULL;
+
+
 int init();
 int close();
 int init()
@@ -58,6 +61,12 @@ int main(int argc, char* args[])
 	{
 		int running = 1;
 		SDL_Event e;
+		SDL_Rect rect_one = {
+			WINDOW_WIDTH 	/ 4, 	// x
+			WINDOW_HEIGHT 	/ 4,	// y
+			WINDOW_WIDTH 	/ 8,	// width
+			WINDOW_HEIGHT 	/ 2		// height
+		};
 		while (running)
 		{
 			while (SDL_PollEvent(&e) != 0)
@@ -69,6 +78,13 @@ int main(int argc, char* args[])
 						break;
 				}
 			}
+			SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+			SDL_RenderClear(renderer);
+
+			SDL_SetRenderDrawColor(renderer, 0x70, 0x70, 0x70, 0xFF);
+			SDL_RenderFillRect(renderer, &rect_one);
+
+			SDL_RenderPresent(renderer);
 		}
 	}
 	close();
