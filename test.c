@@ -61,11 +61,19 @@ int main(int argc, char* args[])
 	{
 		int running = 1;
 		SDL_Event e;
-		SDL_Rect rect_one = {
+		SDL_Rect rect_one = 
+		{
 			WINDOW_WIDTH 	/ 4, 	// x
 			WINDOW_HEIGHT 	/ 4,	// y
 			WINDOW_WIDTH 	/ 8,	// width
-			WINDOW_HEIGHT 	/ 2		// height
+			WINDOW_HEIGHT 	/ 8		// height
+		};
+		SDL_Rect rect_two =
+		{
+			rect_one.x + rect_one.w,
+			rect_one.y + rect_one.h,
+			rect_one.w,
+			rect_one.h
 		};
 		while (running)
 		{
@@ -83,6 +91,9 @@ int main(int argc, char* args[])
 
 			SDL_SetRenderDrawColor(renderer, 0x70, 0x70, 0x70, 0xFF);
 			SDL_RenderFillRect(renderer, &rect_one);
+
+			SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
+			SDL_RenderFillRect(renderer, &rect_two);
 
 			SDL_RenderPresent(renderer);
 		}
