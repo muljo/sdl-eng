@@ -92,7 +92,7 @@ int main(int argc, char* args[])
 			SDL_SetRenderDrawColor(renderer, 0x70, 0x70, 0x70, 0xFF);
 			SDL_RenderFillRect(renderer, &rect_one);
 
-			SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
+			SDL_SetRenderDrawColor(renderer, 0x00, 0x50, 0x00, 0xFF);
 			SDL_RenderFillRect(renderer, &rect_two);
 
 			SDL_RenderPresent(renderer);
