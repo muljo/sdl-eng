@@ -104,22 +104,22 @@ int main(int argc, char* args[])
 			SDL_SetRenderDrawColor(renderer, 0x00, 0x80, 0x00, 0xFF);
 			SDL_RenderDrawLine(renderer,
 					originX,
-					originY - line_length,
+					originY + line_length,
 					originX + line_length,
-					WINDOW_HEIGHT / 2 - line_length);
+					originY + line_length);
 			SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
 			SDL_RenderDrawLine(renderer,
 					originX,
 					originY,
 					originX,
-					originY - line_length);
+					originY + line_length);
 
 			SDL_SetRenderDrawColor(renderer, 0x30, 0x80, 0xC0, 0xFF);
 			SDL_RenderDrawLine(renderer,
 					originX + line_length,
-					originY - line_length,
+					originY,
 					originX + line_length,
-					originY);
+					originY + line_length);
 			SDL_RenderPresent(renderer);
 		}
 	}
