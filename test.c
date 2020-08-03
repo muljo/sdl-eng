@@ -63,8 +63,8 @@ int main(int argc, char* args[])
 		SDL_Event e;
 		SDL_Rect rect_one = 
 		{
-			WINDOW_WIDTH 	/ 4, 	// x
-			WINDOW_HEIGHT 	/ 4,	// y
+			WINDOW_WIDTH 	/ 8, 	// x
+			WINDOW_HEIGHT 	/ 8,	// y
 			WINDOW_WIDTH 	/ 8,	// width
 			WINDOW_HEIGHT 	/ 8		// height
 		};
@@ -75,6 +75,9 @@ int main(int argc, char* args[])
 			rect_one.w,
 			rect_one.h
 		};
+		const int line_length = WINDOW_WIDTH / 1.5 - WINDOW_WIDTH / 2;
+		const int originX = WINDOW_WIDTH / 1.5;
+		const int originY = WINDOW_HEIGHT / 2;
 		while (running)
 		{
 			while (SDL_PollEvent(&e) != 0)
@@ -89,12 +92,34 @@ int main(int argc, char* args[])
 			SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 			SDL_RenderClear(renderer);
 
-			SDL_SetRenderDrawColor(renderer, 0x70, 0x70, 0x70, 0xFF);
-			SDL_RenderFillRect(renderer, &rect_one);
+			SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
+			
 
-			SDL_SetRenderDrawColor(renderer, 0x00, 0x50, 0x00, 0xFF);
-			SDL_RenderFillRect(renderer, &rect_two);
+			SDL_RenderDrawLine(renderer,
+					originX,
+					originY,
+					originX  + line_length,
+					originY);
 
+			SDL_SetRenderDrawColor(renderer, 0x00, 0x80, 0x00, 0xFF);
+			SDL_RenderDrawLine(renderer,
+					originX,
+					originY - line_length,
+					originX + line_length,
+					WINDOW_HEIGHT / 2 - line_length);
+			SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
+			SDL_RenderDrawLine(renderer,
+					originX,
+					originY,
+					originX,
+					originY - line_length);
+
+			SDL_SetRenderDrawColor(renderer, 0x30, 0x80, 0xC0, 0xFF);
+			SDL_RenderDrawLine(renderer,
+					originX + line_length,
+					originY - line_length,
+					originX + line_length,
+					originY);
 			SDL_RenderPresent(renderer);
 		}
 	}
