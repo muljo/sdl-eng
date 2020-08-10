@@ -23,7 +23,14 @@ int init();
  * Called before the program exits
  * 
  */
-int close();
+void close();
+
+void render();
+
+void render()
+{
+}
+
 int init()
 {
 	int success = 1;
@@ -54,7 +61,7 @@ int init()
 	}
 	return success;
 }
-int close()
+void close()
 {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
