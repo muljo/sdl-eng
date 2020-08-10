@@ -1,6 +1,6 @@
 # Makefile based off lazy foo SDL tutorial Makefile
 # http://lazyfoo.net/
-OBJS = test.c
+OBJS = main.c
 
 CC = gcc
 
