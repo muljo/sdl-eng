@@ -43,6 +43,7 @@ int init()
 			}
 		}
 	}
+	return success;
 }
 int close()
 {
@@ -51,6 +52,7 @@ int close()
 	renderer = NULL;
 	window = NULL;
 	SDL_Quit();
+	return 0;
 }
 int main(int argc, char* args[])
 {
