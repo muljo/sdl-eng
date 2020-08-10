@@ -12,8 +12,17 @@ SDL_Renderer* renderer = NULL;
 
 SDL_Texture* texture = NULL;
 
-
+/**
+ * Initialises the engine
+ * Creates a window and renderer to draw on 
+ * @return whether the engine was initialised successfully.
+ */
 int init();
+/**
+ * Cleans up the engine
+ * Called before the program exits
+ * 
+ */
 int close();
 int init()
 {
