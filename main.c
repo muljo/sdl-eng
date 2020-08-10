@@ -1,8 +1,20 @@
 #include <stdio.h>
 #include <SDL.h>
 
-const int WINDOW_WIDTH = 640;
-const int WINDOW_HEIGHT = 480;
+static const int WINDOW_WIDTH = 640;
+static const int WINDOW_HEIGHT = 480;
+
+typedef struct paddlepongt
+{
+	int x;
+	int y;
+	int width;
+	int height;
+	int dy;
+} paddle;
+
+
+
 
 SDL_Window* window = NULL;
 
@@ -24,12 +36,6 @@ int init();
  * 
  */
 void close();
-
-void render();
-
-void render()
-{
-}
 
 int init()
 {
